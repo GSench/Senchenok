@@ -10,6 +10,7 @@ import java.net.URL;
 public interface SystemInterface {
 
     public void doOnBackground(function<Void> background);
+    public void doOnForeground(function<Void> foreground);
     public Pair<byte[], HttpParams> httpGet(URL url, HttpParams params) throws IOException;
     public String[] getSavedStringArray(String title, String[] def);
     public void saveStringArray(String title, String[] array);

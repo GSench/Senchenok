@@ -1,5 +1,6 @@
 package com.gsench.senchenok.presentation;
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.gsench.senchenok.domain.SystemInterface;
@@ -37,7 +38,7 @@ import java.util.Set;
 
 public class AndroidInterface implements SystemInterface {
 
-    private Context act;
+    private Activity act;
     public static final String SPREF = "preferences";
 
     private void initCookieHandler(){
@@ -46,7 +47,7 @@ public class AndroidInterface implements SystemInterface {
         CookieHandler.setDefault(cookieManager);
     }
 
-    public AndroidInterface(Context act){
+    public AndroidInterface(Activity act){
         this.act = act;
         initCookieHandler();
     }
@@ -60,6 +61,11 @@ public class AndroidInterface implements SystemInterface {
             }
         }).start();
 
+    }
+
+    @Override
+    public void doOnForeground(function<Void> foreground) {
+        act.runOnUiThread(() -> foreground.run());
     }
 
     @Override
