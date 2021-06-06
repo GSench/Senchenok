@@ -60,8 +60,10 @@ public class MainInteractor {
                 });
             } catch (Exception e) {
                 e.printStackTrace();
-                presenter.OnPostDataError();
-                presenter.unlockPrevBtn();
+                system.doOnForeground(params1 -> {
+                    presenter.OnPostDataError();
+                    presenter.unlockPrevBtn();
+                });
             }
         });
     }

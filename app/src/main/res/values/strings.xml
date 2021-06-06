@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Senchenok</string>
+    <string name="gif_post">gif_post</string>
+    <string name="hello">Ща загрузит, тестер не бей!</string>
+    <string name="error_text">Ошибка загрузки. Проверьте ваше подключение к интернету</string>
+    <string name="retry">Повторить</string>
 </resources>
