@@ -38,6 +38,7 @@ public class MainInteractor {
             return;
         }
         presenter.PostLoaded(postList.get(--currentPost));
+        presenter.unlockNextBtn();
         if(currentPost<1) presenter.lockPrevBtn();
     }
 
@@ -60,6 +61,7 @@ public class MainInteractor {
             } catch (Exception e) {
                 e.printStackTrace();
                 presenter.OnPostDataError();
+                presenter.unlockPrevBtn();
             }
         });
     }
